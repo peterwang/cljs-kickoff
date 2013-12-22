@@ -2,13 +2,17 @@
   :description "FIXME: write this!"
   :url "http://example.com/FIXME"
   :dependencies [[org.clojure/clojure "1.5.1"]
-                 [org.clojure/clojurescript "0.0-1896"]
-                 [ring "1.1.8"]]
-  :plugins [[lein-cljsbuild "0.3.2"]
-            [lein-ring "0.8.3"]]
+                 [org.clojure/clojurescript "0.0-2127"]
+                 [ring "1.2.1"]
+                 [hiccup "1.0.4"]
+                 [compojure "1.1.6"]
+                 [domina "1.0.2"]]
+  :plugins [[com.cemerick/austin "0.1.3"]
+            [lein-cljsbuild "1.0.1"]
+            [lein-ring "0.8.8"]]
   :hooks [leiningen.cljsbuild]
   :source-paths ["src/clj"]
-  :cljsbuild { 
+  :cljsbuild {
     :builds {
       :main {
         :source-paths ["src/cljs"]
@@ -18,4 +22,3 @@
         :jar true}}}
   :main {{name}}.server
   :ring {:handler {{name}}.server/app})
-

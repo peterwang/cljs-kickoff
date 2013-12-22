@@ -1,7 +1,12 @@
-(ns hello-clojurescript)
+(ns hello-clojurescript
+  (:require [clojure.browser.repl]
+            [domina :refer [by-id]]
+            [domina.events :refer [listen!]]))
 
-(defn handle-click []
-  (js/alert "Hello!"))
+(defn init []
+  (listen!
+   (by-id "clickable")
+   :click
+   (fn [] (js/alert "clicked"))))
 
-(def clickable (.getElementById js/document "clickable"))
-(.addEventListener clickable "click" handle-click)
+(init)
